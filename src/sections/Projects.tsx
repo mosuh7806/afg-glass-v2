@@ -31,9 +31,8 @@ const projects: Project[] = [
     images: [
       '/images/Waterfront Towers Image 1.jpeg',
       '/images/Waterfront Towers Image  2.jpeg',
-      '/images/Waterfront Towers Image 3.jpeg',
-      '/images/Saadiyat 4.jpg',
-      '/images/Saadiyat 5.jpg',
+      '/images/Waterfront 2.jpeg',
+      '/images/Waterfront 3.jpeg',
     ],
   },
   {
@@ -68,6 +67,8 @@ const projects: Project[] = [
       '/images/Saadiyat 1.webp',
       '/images/Saadiyat 2.webp',
       '/images/Saadiyat 3.webp',
+      '/images/Saadiyat 4.jpg',
+      '/images/Saadiyat 5.jpg',
     ],
   },
 ]

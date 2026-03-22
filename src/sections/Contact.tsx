@@ -1,5 +1,4 @@
 import { useState } from 'react'
-// Added Landmark to the imports
 import { Phone, Mail, MapPin, Send, Landmark } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -37,7 +36,8 @@ const contactInfo = [
     icon: <MapPin className="w-6 h-6" />,
     label: 'Visit Us',
     value: 'Musaffah - M43 - Abu Dhabi',
-    href: 'https://maps.google.com/?q=Musaffah+M43+Abu+Dhabi',
+    // Link to your Google Business Profile Search Results
+    href: 'https://www.google.com/search?q=AFG+Glass+%26+Aluminum+Sole+Proprietorship+LLC.',
   },
 ]
 
@@ -74,13 +74,15 @@ export default function Contact() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Contact Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+          {/* Contact Info Cards */}
           <div className="lg:col-span-1 space-y-6">
             {contactInfo.map((item, index) => (
               <a
                 key={index}
                 href={item.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="flex items-center gap-5 p-4 rounded-2xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100"
               >
                 <div className="w-14 h-14 bg-[#1e3a5f] rounded-xl flex items-center justify-center text-[#c9a227] group-hover:bg-[#c9a227] group-hover:text-white transition-all shadow-lg group-hover:shadow-[#c9a227]/20">
@@ -110,11 +112,9 @@ export default function Contact() {
                   <Input
                     id="name"
                     placeholder="Your name"
-                    className="bg-white border-slate-200 focus:border-[#c9a227] focus:ring-[#c9a227]"
+                    className="bg-white border-slate-200"
                     value={formData.name}
-                    onChange={(e) =>
-                      setFormData({ ...formData, name: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     required
                   />
                 </div>
@@ -126,11 +126,9 @@ export default function Contact() {
                     id="email"
                     type="email"
                     placeholder="your@email.com"
-                    className="bg-white border-slate-200 focus:border-[#c9a227] focus:ring-[#c9a227]"
+                    className="bg-white border-slate-200"
                     value={formData.email}
-                    onChange={(e) =>
-                      setFormData({ ...formData, email: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     required
                   />
                 </div>
@@ -140,9 +138,7 @@ export default function Contact() {
                 <Label htmlFor="projectType" className="text-[#1e3a5f] font-bold">Project Type</Label>
                 <Select
                   value={formData.projectType}
-                  onValueChange={(value) =>
-                    setFormData({ ...formData, projectType: value })
-                  }
+                  onValueChange={(value) => setFormData({ ...formData, projectType: value })}
                 >
                   <SelectTrigger className="bg-white">
                     <SelectValue placeholder="Select project type..." />
@@ -164,23 +160,34 @@ export default function Contact() {
                   id="message"
                   placeholder="Tell us about your project..."
                   rows={5}
-                  className="bg-white border-slate-200 focus:border-[#c9a227] focus:ring-[#c9a227]"
+                  className="bg-white border-slate-200"
                   value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
+                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 />
               </div>
 
               <Button
                 type="submit"
-                className="w-full sm:w-auto bg-[#1e3a5f] hover:bg-[#c9a227] text-white font-bold py-6 px-10 rounded-xl transition-all shadow-lg hover:shadow-[#c9a227]/30"
+                className="w-full sm:w-auto bg-[#1e3a5f] hover:bg-[#c9a227] text-white font-bold py-6 px-10 rounded-xl transition-all shadow-lg"
               >
                 <Send className="w-4 h-4 mr-2" />
                 SEND INQUIRY
               </Button>
             </form>
           </div>
+        </div>
+
+        {/* Embedded Map Section - Focused on M43 Musaffah Area */}
+        <div className="w-full h-[450px] rounded-3xl overflow-hidden border-4 border-slate-50 shadow-2xl">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3635.808240536767!2d54.5055047!3d24.318318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e5e406325f69611%3A0x673c9f2b865668e2!2sAFG%20Glass%20%26%20Aluminum%20Sole%20Proprietorship%20LLC.!5e0!3m2!1sen!2sae!4v1711095000000!5m2!1sen!2sae"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
         </div>
       </div>
     </section>
